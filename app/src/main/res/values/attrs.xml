@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textColor" format="color"/>
+
+    <attr name="button1TextColor" format="color"/>
+    <attr name="button1BackgroundColor" format="color"/>
+
+    <attr name="button2TextColor" format="color"/>
+    <attr name="button2BackgroundColor" format="color"/>
+
+    <attr name="inputTextColor" format="color"/>
+    <attr name="inputBackgroundColor" format="color"/>
+</resources>
