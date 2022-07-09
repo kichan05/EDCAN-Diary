@@ -45,7 +45,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
 
-        android:background="@drawable/sh_circle_ring"
+        android:background="@drawable/sh_circle_fill"
 
         android:layout_marginHorizontal="24dp"
 
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="(1/3)"
+        android:text="(2/3)"
         android:textFontWeight="400"
         android:textSize="18sp"
 
@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@drawable/undraw_register1"
+        android:src="@drawable/undraw_register2"
 
         android:layout_marginTop="34dp"
 
@@ -116,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="이름과 이메일을 입력해주세요"
+        android:text="비밀번호를 입력해주세요"
         android:textSize="22sp"
         android:textFontWeight="400"
 
@@ -132,7 +132,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:hint="이름"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
 
         android:layout_marginTop="26dp"
 
@@ -146,7 +147,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:hint="이메일"
+        android:hint="비밀번호 확인"
+        android:inputType="textPassword"
 
         android:layout_marginTop="16dp"
 
