@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_circle_fill.xml" value="0.1" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_circle_ring.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_square_15.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/font/font.xml" value="0.1527777777777778" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/layout/fragment_register1.xml" value="0.22" />
       </map>
     </option>
   </component>
