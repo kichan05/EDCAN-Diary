@@ -157,7 +157,7 @@
             app:layout_constraintEnd_toEndOf="@id/line2" />
 
         <Button
-            android:id="@+id/btn_register2_next"
+            android:id="@+id/btn_register3_next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
