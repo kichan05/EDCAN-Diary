@@ -11,6 +11,8 @@ import kr.edcan.ssf2022.util.Result
 import kr.edcan.ssf2022.util.Collection
 
 class AuthRepositoryImpl : AuthRepository {
+    val auth_ : FirebaseAuth = FirebaseAuth.getInstance()
+
     private val auth : FirebaseAuth = FirebaseAuth.getInstance()
     private val db : FirebaseFirestore = FirebaseFirestore.getInstance()
     private val storage : FirebaseStorage = FirebaseStorage.getInstance()
@@ -75,7 +77,7 @@ class AuthRepositoryImpl : AuthRepository {
         * 사용자 정보가 없다면 로그인을 진행하지 않는다
         * 사용자 정보가 있으면 로그인을 진행한다.
         * */
-        var userData : User? = getUserDataByEmail(email) ?: null;
+        var userData : User? = getUserDataByEmail(email) ?: return null
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnFailureListener {
@@ -89,6 +91,7 @@ class AuthRepositoryImpl : AuthRepository {
     }
 
     override suspend fun getUserDataByEmail(email: String): User? {
+        /* 이메일을 이용해서 사용자의 정보를 가져오는 함수 */
         var result : User? = null
 
         db.collection(Collection.auth).document(email).get()
@@ -99,4 +102,10 @@ class AuthRepositoryImpl : AuthRepository {
 
         return result
     }
+
+    val isAlreadyLogin : Boolean
+        get() = auth.currentUser != null
+
+    val currentUser
+        get() = auth.currentUser
 }

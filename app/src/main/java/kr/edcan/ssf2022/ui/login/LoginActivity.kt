@@ -14,13 +14,15 @@ import kr.edcan.ssf2022.util.State
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
-    val viewModel : LoginViewModel by viewModels()
+    val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.lifecycleOwner = this
         binding.vm = viewModel
+
+        viewModel.autoLogin()
 
         with(binding) {
             btnLoginRegister.setOnClickListener {
@@ -33,15 +35,8 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.state.observe(this){
-            when(it){
-                State.SUCCESS -> {
-                    Toast.makeText(this, "로그인에 성공하셨습니다", Toast.LENGTH_LONG).show()
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+        viewModel.state.observe(this) {
+            when (it) {
                 State.LOADING -> {
                     Toast.makeText(this, "로그인 진행중", Toast.LENGTH_LONG).show()
                 }
@@ -50,5 +45,22 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        viewModel.userData.observe(this) {
+            if (it != null) {
+                Toast.makeText(this, "환영합니다", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(this, MainActivity::class.java).apply {
+                    putExtra("userData", it)
+                }
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        viewModel.autoLogin()
     }
 }
