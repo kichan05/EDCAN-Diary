@@ -26,7 +26,6 @@ class RegisterActivity : AppCompatActivity() {
     var inputEmail = ""
     var inputPassword = ""
     var inputMessage = ""
-//    var inputName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

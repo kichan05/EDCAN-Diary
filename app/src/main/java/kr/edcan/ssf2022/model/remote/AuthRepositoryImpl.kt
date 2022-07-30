@@ -11,9 +11,9 @@ import kr.edcan.ssf2022.util.Result
 import kr.edcan.ssf2022.util.Collection
 
 class AuthRepositoryImpl : AuthRepository {
-    val auth : FirebaseAuth = FirebaseAuth.getInstance()
-    val db : FirebaseFirestore = FirebaseFirestore.getInstance()
-    val storage : FirebaseStorage = FirebaseStorage.getInstance()
+    private val auth : FirebaseAuth = FirebaseAuth.getInstance()
+    private val db : FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val storage : FirebaseStorage = FirebaseStorage.getInstance()
     
     override suspend fun register(userData: User, password: String): Int {
         /*
@@ -33,10 +33,6 @@ class AuthRepositoryImpl : AuthRepository {
         // TODO("프로필 사진 업로드 기능 만들기")
 
         return Result.SUCCESS
-    }
-
-    override suspend fun register(userData: User, password: String, profileImage: Uri?): Int {
-        TODO("Not yet implemented")
     }
 
     override suspend fun createUser(userData: User, password: String): Int {
@@ -70,5 +66,37 @@ class AuthRepositoryImpl : AuthRepository {
 
     override suspend fun uploadProfileImage(userData: User, profileImage: Uri): Int {
         TODO("Not yet implemented")
+    }
+
+    override suspend fun login(email: String, password: String): User? {
+        /*
+        * 로그인을 진행하는 함수
+        * 사용자가 입력한 이메일에 해당하는 사용자 정보를 가져온다.
+        * 사용자 정보가 없다면 로그인을 진행하지 않는다
+        * 사용자 정보가 있으면 로그인을 진행한다.
+        * */
+        var userData : User? = getUserDataByEmail(email) ?: null;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnFailureListener {
+                Log.e("[login error]", "${it.message}")
+                userData = null
+            }
+            .await()
+
+
+        return userData
+    }
+
+    override suspend fun getUserDataByEmail(email: String): User? {
+        var result : User? = null
+
+        db.collection(Collection.auth).document(email).get()
+            .addOnSuccessListener {
+                result = it.toObject(User::class.java)
+            }
+            .await()
+
+        return result
     }
 }

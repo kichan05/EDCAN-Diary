@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,6 +69,7 @@
             android:layout_height="wrap_content"
 
             android:hint="Email"
+            android:text="@={vm.inputEmail}"
 
             android:layout_marginTop="32dp"
 
@@ -81,6 +84,7 @@
             android:layout_height="wrap_content"
 
             android:hint="Password"
+            android:text="@={vm.inputPassword}"
 
             android:layout_marginTop="16dp"
 
