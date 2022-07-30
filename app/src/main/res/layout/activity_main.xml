@@ -24,7 +24,9 @@
         android:id="@+id/btnv_main"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        
+
+        android:background="@drawable/sh_main_bottom_nav_bg"
+
         app:itemIconTint="@drawable/sc_main_bottom_nav_color"
         app:itemTextColor="@drawable/sc_main_bottom_nav_color"
 

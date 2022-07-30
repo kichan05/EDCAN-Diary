@@ -5,9 +5,10 @@
       <map>
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_diary.xml" value="0.2655" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_home.xml" value="0.2655" />
-        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_main_bottom_nav_color.xml" value="0.1" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_main_bottom_nav_color.xml" value="0.148" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_circle_fill.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_circle_ring.xml" value="0.1" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_main_bottom_nav_bg.xml" value="0.1215" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_square_15.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/font/font.xml" value="0.1527777777777778" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -21,7 +22,7 @@
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/fragment_register1.xml" value="0.22" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/fragment_register2.xml" value="0.25" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/fragment_register3.xml" value="0.25" />
-        <entry key="..\:/Android/SSF2022/app/src/main/res/menu/mn_main.xml" value="0.1" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/menu/mn_main.xml" value="0.25" />
       </map>
     </option>
   </component>
