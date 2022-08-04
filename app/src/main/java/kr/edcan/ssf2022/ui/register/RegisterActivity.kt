@@ -1,5 +1,6 @@
 package kr.edcan.ssf2022.ui.register
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +26,7 @@ class RegisterActivity : AppCompatActivity() {
     var inputName = ""
     var inputEmail = ""
     var inputPassword = ""
+    var inputProfileImage : Uri? = null
     var inputMessage = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {

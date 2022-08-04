@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
+import gun0912.tedimagepicker.builder.TedImagePicker
 import kr.edcan.ssf2022.R
 import kr.edcan.ssf2022.databinding.FragmentRegister3Binding
+import kr.edcan.ssf2022.ui.main.MainActivity
 
 class Register3Fragment : Fragment() {
     lateinit var binding: FragmentRegister3Binding
@@ -26,9 +29,26 @@ class Register3Fragment : Fragment() {
                 }
             }
 
+            imgRegister3Profile.setOnClickListener {
+                inputProfileImage()
+            }
+
+            btnRegister4GetImage.setOnClickListener {
+                inputProfileImage()
+            }
         }
 
 
         return binding.root
+    }
+
+    private fun inputProfileImage() {
+        TedImagePicker.with(context!!)
+            .start { uri ->
+                (activity as RegisterActivity).inputProfileImage = uri
+                Glide.with(context!!)
+                    .load(uri)
+                    .into(binding.imgRegister3Profile)
+            }
     }
 }

@@ -129,6 +129,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btn_register4_getImage"
             android:layout_width="32dp"
             android:layout_height="32dp"
 
