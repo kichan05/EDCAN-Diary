@@ -1,5 +1,6 @@
 package kr.edcan.ssf2022.ui.login
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,7 +21,7 @@ class LoginViewModel : ViewModel() {
     fun login() {
         state.value = State.LOADING
         viewModelScope.launch {
-            val result = auth.login(inputEmail.value!!, inputPassword.value!!)
+            val result = auth.login(email = inputEmail.value!!, password = inputPassword.value!!)
             userData.value = result
 
             state.value = if (result != null) {
@@ -43,7 +44,11 @@ class LoginViewModel : ViewModel() {
 
         if (auth.isAlreadyLogin) {  // 사용자가 이미 로그인을 했다면
             viewModelScope.launch {
-                val user = auth.getUserDataByEmail(auth.currentUser!!.email.toString())!!
+                Log.d(
+                    "register",
+                    auth.currentUser!!.email.toString()
+                )
+                val user = auth.getUserDataByEmail(email = auth.currentUser!!.email.toString())!!
                 userData.value = user
             }
         }

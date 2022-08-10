@@ -63,6 +63,7 @@ class RegisterActivity : AppCompatActivity() {
             profileImage = ""
         )
 
+        viewModel.profile.value = inputProfileImage
         viewModel.password.value = inputPassword
 
         viewModel.register()

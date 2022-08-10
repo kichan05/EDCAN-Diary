@@ -1,5 +1,6 @@
 package kr.edcan.ssf2022.model.remote
 
+import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +18,7 @@ class AuthRepositoryImpl : AuthRepository {
     private val db : FirebaseFirestore = FirebaseFirestore.getInstance()
     private val storage : FirebaseStorage = FirebaseStorage.getInstance()
     
-    override suspend fun register(userData: User, password: String): Int {
+    override suspend fun register(userData: User, password: String, profileImage: Uri): Int {
         /*
         * 회원가입을 진행하는 함수
         * firebase의 유저를 만들고, 유저 정보를 저장하고, 프로필 이미지를 업로드 한다.
@@ -28,11 +29,18 @@ class AuthRepositoryImpl : AuthRepository {
         if(createUserResult == Result.FAILED)
             return Result.FAILED
 
-        val saveUserData = saveUserData(userData)
+        Log.d("register", "업로드 완")
+
+        val profileUploadResult = uploadProfileImage(userData, profileImage) ?: return Result.FAILED
+
+        Log.d("register", profileUploadResult)
+
+        val saveUserData = saveUserData(userData, profileUploadResult)
         if(saveUserData == Result.FAILED)
             return Result.FAILED
 
-        // TODO("프로필 사진 업로드 기능 만들기")
+        Log.d("register", "저장 완")
+
 
         return Result.SUCCESS
     }
@@ -51,7 +59,7 @@ class AuthRepositoryImpl : AuthRepository {
         return result
     }
 
-    override suspend fun saveUserData(userData: User): Int {
+    override suspend fun saveUserData(userData: User, profileImage: String): Int {
         /*
         * Firebase Forestore에 계정 정보를 저장하는 함수 
         * */
@@ -61,13 +69,45 @@ class AuthRepositoryImpl : AuthRepository {
             .addOnSuccessListener {
                 result = Result.SUCCESS
             }
+            .addOnFailureListener {
+                Log.e("register", it.message.toString())
+            }
             .await()
+
+        if(result == Result.FAILED)
+            return result
+
+        result = Result.FAILED
+
+        db.collection(Collection.auth).document(userData.email)
+            .update(profileImage, profileImage)
+            .addOnSuccessListener {
+                result = Result.SUCCESS
+            }
 
         return result
     }
 
-    override suspend fun uploadProfileImage(userData: User, profileImage: Uri): Int {
-        TODO("Not yet implemented")
+    override suspend fun uploadProfileImage(userData: User, profileImage: Uri): String? {
+        var result : String? = null
+        val imageRef = storage.reference.child("user/${userData.email}.png")
+
+        imageRef.putFile(profileImage)
+            .continueWithTask {
+                if(!it.isSuccessful){
+                    Log.d("register", it.exception!!.message.toString())
+                }
+                imageRef.downloadUrl
+            }
+            .addOnCompleteListener {
+                result = it.result.toString()
+            }
+            .addOnFailureListener {
+                Log.e("register", it.message.toString())
+            }
+            .await()
+
+        return result
     }
 
     override suspend fun login(email: String, password: String): User? {

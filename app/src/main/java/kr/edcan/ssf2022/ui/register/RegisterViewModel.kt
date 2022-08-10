@@ -1,5 +1,6 @@
 package kr.edcan.ssf2022.ui.register
 
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,12 +18,15 @@ class RegisterViewModel : ViewModel() {
 
     val userData: MutableLiveData<User> = MutableLiveData()
     val password: MutableLiveData<String> = MutableLiveData("")
+    val profile: MutableLiveData<Uri?> = MutableLiveData()
 
     fun register() {
         state.value = State.LOADING
 
         viewModelScope.launch {
-            val result = auth.register(userData.value!!, password.value!!)
+            Log.d("register", "시작")
+            val result = auth.register(userData.value!!, password.value!!, profile.value!!)
+            Log.d("register", "끝")
 
             when (result){
                 Result.SUCCESS -> {
