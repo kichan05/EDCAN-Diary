@@ -2,6 +2,7 @@ package kr.edcan.ssf2022.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -22,5 +23,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.userData.value = intent.getParcelableExtra<User>("userData")
         navControl = findNavController(R.id.fr_main)
         findViewById<BottomNavigationView>(R.id.btnv_main).setupWithNavController(navControl)
+
+        Log.d("userData", viewModel.userData.value.toString())
     }
 }

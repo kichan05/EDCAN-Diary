@@ -25,7 +25,7 @@ class RegisterViewModel : ViewModel() {
 
         viewModelScope.launch {
             Log.d("register", "시작")
-            val result = auth.register(userData.value!!, password.value!!, profile.value!!)
+            val result = auth.register(userData.value!!, password.value!!, profile.value)
             Log.d("register", "끝")
 
             when (result){

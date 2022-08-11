@@ -10,6 +10,7 @@ import kotlinx.coroutines.tasks.await
 import kr.edcan.ssf2022.model.data.User
 import kr.edcan.ssf2022.util.Result
 import kr.edcan.ssf2022.util.Collection
+import kr.edcan.ssf2022.util.Temp
 
 class AuthRepositoryImpl : AuthRepository {
     val auth_ : FirebaseAuth = FirebaseAuth.getInstance()
@@ -18,7 +19,7 @@ class AuthRepositoryImpl : AuthRepository {
     private val db : FirebaseFirestore = FirebaseFirestore.getInstance()
     private val storage : FirebaseStorage = FirebaseStorage.getInstance()
     
-    override suspend fun register(userData: User, password: String, profileImage: Uri): Int {
+    override suspend fun register(userData: User, password: String, profileImage: Uri?): Int {
         /*
         * 회원가입을 진행하는 함수
         * firebase의 유저를 만들고, 유저 정보를 저장하고, 프로필 이미지를 업로드 한다.
@@ -29,15 +30,22 @@ class AuthRepositoryImpl : AuthRepository {
         if(createUserResult == Result.FAILED)
             return Result.FAILED
 
-        Log.d("register", "업로드 완")
+        Log.d("register", "저장 완")
 
-        val profileUploadResult = uploadProfileImage(userData, profileImage) ?: return Result.FAILED
+        val profileUploadResult = if(profileImage != null){
+            uploadProfileImage(userData, profileImage) ?: return Result.FAILED
+        }
+        else{
+            Temp.basics_profile_image
+        }
 
         Log.d("register", profileUploadResult)
 
         val saveUserData = saveUserData(userData, profileUploadResult)
-        if(saveUserData == Result.FAILED)
+        if(saveUserData == Result.FAILED){
+            Log.d("register", "저장 실패")
             return Result.FAILED
+        }
 
         Log.d("register", "저장 완")
 
