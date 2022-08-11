@@ -13,12 +13,12 @@ import kr.edcan.ssf2022.util.Collection
 import kr.edcan.ssf2022.util.Temp
 
 class AuthRepositoryImpl : AuthRepository {
-    val auth_ : FirebaseAuth = FirebaseAuth.getInstance()
+    val auth_: FirebaseAuth = FirebaseAuth.getInstance()
 
-    private val auth : FirebaseAuth = FirebaseAuth.getInstance()
-    private val db : FirebaseFirestore = FirebaseFirestore.getInstance()
-    private val storage : FirebaseStorage = FirebaseStorage.getInstance()
-    
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val storage: FirebaseStorage = FirebaseStorage.getInstance()
+
     override suspend fun register(userData: User, password: String, profileImage: Uri?): Int {
         /*
         * 회원가입을 진행하는 함수
@@ -27,22 +27,30 @@ class AuthRepositoryImpl : AuthRepository {
         * */
 
         val createUserResult = createUser(userData, password)
-        if(createUserResult == Result.FAILED)
+        if (createUserResult == Result.FAILED)
             return Result.FAILED
 
-        Log.d("register", "저장 완")
+        Log.d("register", "생성 완")
 
-        val profileUploadResult = if(profileImage != null){
+        val profileUploadResult = if (profileImage != null) {
             uploadProfileImage(userData, profileImage) ?: return Result.FAILED
-        }
-        else{
+        } else {
             Temp.basics_profile_image
         }
 
         Log.d("register", profileUploadResult)
 
-        val saveUserData = saveUserData(userData, profileUploadResult)
-        if(saveUserData == Result.FAILED){
+        val _userData = with(userData) {
+            User(
+                email = email,
+                name = name,
+                message = message,
+                profileImage = profileUploadResult
+            )
+        }
+
+        val saveUserData = saveUserData(_userData, profileUploadResult)
+        if (saveUserData == Result.FAILED) {
             Log.d("register", "저장 실패")
             return Result.FAILED
         }
@@ -82,27 +90,16 @@ class AuthRepositoryImpl : AuthRepository {
             }
             .await()
 
-        if(result == Result.FAILED)
-            return result
-
-        result = Result.FAILED
-
-        db.collection(Collection.auth).document(userData.email)
-            .update(profileImage, profileImage)
-            .addOnSuccessListener {
-                result = Result.SUCCESS
-            }
-
         return result
     }
 
     override suspend fun uploadProfileImage(userData: User, profileImage: Uri): String? {
-        var result : String? = null
+        var result: String? = null
         val imageRef = storage.reference.child("user/${userData.email}.png")
 
         imageRef.putFile(profileImage)
             .continueWithTask {
-                if(!it.isSuccessful){
+                if (!it.isSuccessful) {
                     Log.d("register", it.exception!!.message.toString())
                 }
                 imageRef.downloadUrl
@@ -125,7 +122,7 @@ class AuthRepositoryImpl : AuthRepository {
         * 사용자 정보가 없다면 로그인을 진행하지 않는다
         * 사용자 정보가 있으면 로그인을 진행한다.
         * */
-        var userData : User? = getUserDataByEmail(email) ?: return null
+        var userData: User? = getUserDataByEmail(email) ?: return null
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnFailureListener {
@@ -140,7 +137,7 @@ class AuthRepositoryImpl : AuthRepository {
 
     override suspend fun getUserDataByEmail(email: String): User? {
         /* 이메일을 이용해서 사용자의 정보를 가져오는 함수 */
-        var result : User? = null
+        var result: User? = null
 
         db.collection(Collection.auth).document(email).get()
             .addOnSuccessListener {
@@ -151,7 +148,7 @@ class AuthRepositoryImpl : AuthRepository {
         return result
     }
 
-    val isAlreadyLogin : Boolean
+    val isAlreadyLogin: Boolean
         get() = auth.currentUser != null
 
     val currentUser
