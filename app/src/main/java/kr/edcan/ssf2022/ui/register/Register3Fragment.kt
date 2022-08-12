@@ -1,11 +1,13 @@
 package kr.edcan.ssf2022.ui.register
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import gun0912.tedimagepicker.builder.TedImagePicker
 import kr.edcan.ssf2022.R
@@ -14,17 +16,24 @@ import kr.edcan.ssf2022.ui.main.MainActivity
 
 class Register3Fragment : Fragment() {
     lateinit var binding: FragmentRegister3Binding
+    val viewModel: Register3ViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register3, container, false)
+        binding.vm = viewModel
+        binding.lifecycleOwner = this.viewLifecycleOwner
 
         binding.run {
 
             btnRegister3Next.setOnClickListener {
                 (activity as RegisterActivity).run {
-                    inputMessage = edtRegister3MessageInput.text.toString()
+                    inputMessage = this@Register3Fragment.viewModel.message.value!!
+
+                    Log.d("registerInput", inputMessage)
+
                     register()
                 }
             }

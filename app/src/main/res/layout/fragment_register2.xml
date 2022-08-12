@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.register.Register2ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -130,6 +132,7 @@
             android:layout_height="wrap_content"
 
             android:hint="비밀번호"
+            android:text="@={vm.password}"
             android:inputType="textPassword"
 
             android:layout_marginTop="26dp"
@@ -144,6 +147,7 @@
             android:layout_height="wrap_content"
 
             android:hint="비밀번호 확인"
+            android:text="@={vm.passwordRe}"
             android:inputType="textPassword"
 
             android:layout_marginTop="16dp"

@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.register.Register1ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -130,6 +132,7 @@
             android:layout_height="wrap_content"
 
             android:hint="이름"
+            android:text="@={vm.name}"
 
             android:layout_marginTop="26dp"
 
@@ -143,6 +146,7 @@
             android:layout_height="wrap_content"
 
             android:hint="이메일"
+            android:text="@={vm.email}"
 
             android:layout_marginTop="16dp"
 

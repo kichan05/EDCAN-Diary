@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.register.Register3ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -150,6 +152,7 @@
             android:layout_height="wrap_content"
 
             android:hint="한줄 소개"
+            android:text="@={vm.message}"
 
             android:layout_marginTop="34dp"
 

@@ -36,6 +36,6 @@ class RegisterViewModel : ViewModel() {
                     state.value = State.FAIL
                 }
             }
-        }
+        }    
     }
 }
