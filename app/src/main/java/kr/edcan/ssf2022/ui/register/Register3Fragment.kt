@@ -32,8 +32,6 @@ class Register3Fragment : Fragment() {
                 (activity as RegisterActivity).run {
                     inputMessage = this@Register3Fragment.viewModel.message.value!!
 
-                    Log.d("registerInput", inputMessage)
-
                     register()
                 }
             }

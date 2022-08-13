@@ -36,11 +36,17 @@ class Register2Fragment : Fragment() {
                 (activity as RegisterActivity).run {
                     inputPassword = this@Register2Fragment.viewModel.password.value!!
 
-                    Log.d("registerInput", inputPassword)
-
                     navController.navigate(R.id.action_register2Fragment_to_register3Fragment)
                 }
             }
+        }
+
+        viewModel.password.observe(viewLifecycleOwner){
+            viewModel.checkNext()
+        }
+
+        viewModel.passwordRe.observe(viewLifecycleOwner){
+            viewModel.checkNext()
         }
 
 

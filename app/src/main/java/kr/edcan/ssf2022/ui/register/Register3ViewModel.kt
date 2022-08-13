@@ -8,6 +8,12 @@ import java.sql.Struct
 class Register3ViewModel : ViewModel() {
     val profileImage : MutableLiveData<Uri> = MutableLiveData()
     val message : MutableLiveData<String> = MutableLiveData()
+
+    val isNextEnable : MutableLiveData<Boolean> = MutableLiveData(true)
+
+    fun checkNext(){
+        isNextEnable.value = !message.value.isNullOrEmpty()
+    }
 }
 
 /*

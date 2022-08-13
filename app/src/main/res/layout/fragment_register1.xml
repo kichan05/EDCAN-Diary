@@ -159,13 +159,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:layout_marginBottom="32dp"
+            android:enabled="@{vm.isNextEnable}"
+
             android:text="다음"
 
-            android:layout_marginBottom="32dp"
-
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/line2"
             app:layout_constraintStart_toStartOf="@id/line1"
-            app:layout_constraintEnd_toEndOf="@id/line2" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_diary.xml" value="0.2655" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_home.xml" value="0.2655" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_button_enabled.xml" value="0.1875" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_main_bottom_nav_color.xml" value="0.148" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_button1.xml" value="0.1875" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_circle_fill.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_circle_ring.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sh_main_bottom_nav_bg.xml" value="0.1215" />

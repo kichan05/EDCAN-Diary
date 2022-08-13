@@ -45,8 +45,8 @@
 
         <item name="android:paddingVertical">12dp</item>
 
-        <item name="android:backgroundTint">?attr/button1BackgroundColor</item>
-        <item name="android:background">@drawable/sh_square_15</item>
+<!--        <item name="android:backgroundTint">?attr/button1BackgroundColor</item>-->
+        <item name="android:background">@drawable/sc_button_enabled</item>
     </style>
 
     <style name="customButton2Style" parent="Widget.AppCompat.Button">

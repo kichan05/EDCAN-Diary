@@ -8,6 +8,12 @@ import java.sql.Struct
 class Register2ViewModel : ViewModel() {
     val password : MutableLiveData<String> = MutableLiveData()
     val passwordRe : MutableLiveData<String> = MutableLiveData()
+
+    val isNextEnable : MutableLiveData<Boolean> = MutableLiveData(false)
+
+    fun checkNext(){
+        isNextEnable.value = !(password.value.isNullOrEmpty() || passwordRe.value.isNullOrEmpty())
+    }
 }
 
 /*
