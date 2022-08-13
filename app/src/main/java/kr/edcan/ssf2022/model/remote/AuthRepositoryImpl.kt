@@ -13,7 +13,7 @@ import kr.edcan.ssf2022.util.Collection
 import kr.edcan.ssf2022.util.Temp
 
 class AuthRepositoryImpl : AuthRepository {
-    val auth_: FirebaseAuth = FirebaseAuth.getInstance()
+//    val auth_: FirebaseAuth = FirebaseAuth.getInstance()
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()

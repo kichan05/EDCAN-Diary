@@ -12,16 +12,20 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.Main1Fragment">
 
-        <TextView
-            android:id="@+id/txt_main1_user"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_main1_gotoWrite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="main page 1"
+
+            android:backgroundTint="@color/edcan_blue"
+            android:src="@drawable/ic_write"
+
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="11dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
