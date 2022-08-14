@@ -19,7 +19,7 @@ class WriteViewModel : ViewModel() {
 
     val weather = MutableLiveData<Int>(0)
     val emotion = MutableLiveData<Int>(0)
-    val content = MutableLiveData<String>("EDCAN은 정말 최고야 EDCAN은 정말 최고야 EDCAN은 정말 최고야 ")
+    val content = MutableLiveData<String>()
 
     val state = MutableLiveData<Int>()
 

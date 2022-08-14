@@ -110,7 +110,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@drawable/sc_weather_sun"
-                android:checked="true" />
+                radioButtonIndex="0"
+                choiceIndex="@{vm.weather}"
+                />
 
             <RadioButton
                 android:id="@+id/rb_write_cloud"
@@ -118,6 +120,8 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_cloud"
                 android:layout_weight="1"
+                radioButtonIndex="1"
+                choiceIndex="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_rain"
@@ -125,6 +129,8 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_rain"
                 android:layout_weight="1"
+                radioButtonIndex="2"
+                choiceIndex="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_sunRain"
@@ -132,6 +138,8 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_sun_rain"
                 android:layout_weight="1"
+                radioButtonIndex="3"
+                choiceIndex="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_wind"
@@ -139,6 +147,8 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_wind"
                 android:layout_weight="1"
+                radioButtonIndex="4"
+                choiceIndex="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_snow"
@@ -146,6 +156,8 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_snow"
                 android:layout_weight="1"
+                radioButtonIndex="5"
+                choiceIndex="@{vm.weather}"
                 />
         </RadioGroup>
 
@@ -274,6 +286,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
 
+            android:text="@={vm.content}"
             android:hint="일기를 작성 해주세요"
             android:gravity="top"
 
