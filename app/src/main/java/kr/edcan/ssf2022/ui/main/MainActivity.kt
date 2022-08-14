@@ -1,9 +1,12 @@
 package kr.edcan.ssf2022.ui.main
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -27,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.diaryList.observe(this){
             Log.d("diaryList", it.toString())
+        }
+
+        findViewById<androidx.appcompat.widget.Toolbar>(R.id.tb_main).setNavigationOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edcan.kr"))
+            startActivity(intent)
         }
     }
 }

@@ -8,6 +8,9 @@
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_cloud.xml" value="0.1775" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_cloud_ac.xml" value="0.1105" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_diary.xml" value="0.2655" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan.xml" value="0.1" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan_small.xml" value="0.102" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan_smole.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_fun.xml" value="0.1385" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_fun_ac.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_happy_ac.xml" value="0.1775" />
@@ -63,6 +66,7 @@
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/fragment_register3.xml" value="0.25" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/menu/mn_main.xml" value="0.25" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/menu/tool_bar_menu.xml" value="0.33" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>
