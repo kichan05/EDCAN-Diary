@@ -12,4 +12,5 @@ data class User(
     val name : String = "",
     val message : String = "",
     val profileImage : String = "",
+    var diaryCount : Int = 0,
 ) : Parcelable
