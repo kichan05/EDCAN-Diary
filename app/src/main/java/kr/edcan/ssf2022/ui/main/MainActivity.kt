@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kr.edcan.ssf2022.R
 import kr.edcan.ssf2022.model.data.User
+import kr.edcan.ssf2022.util.Url
 
 class MainActivity : AppCompatActivity() {
     val viewModel : MainViewModel by viewModels()
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<androidx.appcompat.widget.Toolbar>(R.id.tb_main).setNavigationOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edcan.kr"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(Url.edcanWeb))
             startActivity(intent)
         }
     }
