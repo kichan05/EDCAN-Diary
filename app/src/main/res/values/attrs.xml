@@ -10,4 +10,8 @@
 
     <attr name="inputTextColor" format="color"/>
     <attr name="inputBackgroundColor" format="color"/>
+
+    <attr name="toolbarBackgroundColor" format="color"/>
+
+    <attr name="toolbarNavigationImage" format="reference"/>
 </resources>

@@ -24,11 +24,12 @@
         <item name="inputTextColor">@color/flatBlack</item>
         <item name="inputBackgroundColor">#E9E9E9</item>
 
+        <item name="toolbarBackgroundColor">@color/white</item>
+
         <!-- Custom Style -->
         <item name="android:textViewStyle">@style/customTextStyle</item>
         <item name="android:buttonStyle">@style/customButton1Style</item>
         <item name="editTextStyle">@style/customEditTextStyle</item>
-
 
         <item name="android:fontFamily">@font/font</item>
     </style>
@@ -63,7 +64,7 @@
 
     <style name="customEditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:textColor">?attr/inputTextColor</item>
         <item name="android:textFontWeight">400</item>
         <item name="android:textColorHint">#949494</item>
 

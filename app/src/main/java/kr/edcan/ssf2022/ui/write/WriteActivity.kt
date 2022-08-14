@@ -1,8 +1,12 @@
 package kr.edcan.ssf2022.ui.write
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -22,6 +26,7 @@ class WriteActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
+        setSupportActionBar(binding.tbWrite)
         viewModel.userData.value = intent.getParcelableExtra(ExtraKey.userData)!!
 
         viewModel.state.observe(this){
@@ -39,8 +44,28 @@ class WriteActivity : AppCompatActivity() {
             }
         }
 
+        binding.tbWrite.setNavigationOnClickListener {
+            finish()
+        }
+
         binding.btnWriteSave.setOnClickListener {
             viewModel.writeDiary()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.tool_bar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_edcan -> {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edcan.kr"))
+                startActivity(intent)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -23,7 +23,9 @@
         <item name="button2BackgroundColor">@color/edcan_gray</item>
 
         <item name="inputTextColor">@color/flatBlack</item>
-        <item name="inputBackgroundColor">#E9E9E9</item>
+        <item name="inputBackgroundColor">@color/materialGray4</item>
+
+        <item name="toolbarBackgroundColor">@color/materialGray8</item>
 
         <!-- Custom Style -->
         <item name="android:textViewStyle">@style/customTextStyle</item>
