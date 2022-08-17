@@ -16,16 +16,26 @@ import kr.edcan.ssf2022.util.State
 import java.util.*
 
 class MainViewModel : ViewModel() {
-    val userData: MutableLiveData<User> = MutableLiveData()
+    private val diaryRepository = DiaryRepositoryImpl()
 
-    val diaryData : MutableLiveData<Diary> = MutableLiveData<Diary>(
-        Diary(date = Date(), weather = 2, emotion = 4, content = "대충 일기")
-    )
-    val diaryList : MutableLiveData<List<Diary>> = MutableLiveData()
-    fun test() {
+    val userData: MutableLiveData<User> = MutableLiveData()
+    val diaryList : MutableLiveData<List<Diary>> = MutableLiveData(mutableListOf())
+
+    val state : MutableLiveData<Int> = MutableLiveData(State.SUCCESS)
+
+    fun getDiaryList() {
+        state.value = State.LOADING
+
         viewModelScope.launch {
-//            val diaryList = diaryRepository.getDiaryAll(userData.value!!)
-//            this@MainViewModel.diaryList.value = diaryList
+            val result : List<Diary>? = diaryRepository.getDiaryAll(userData.value!!)
+
+            if(result == null) {
+                state.value = State.FAIL
+            }
+            else {
+                diaryList.value = result
+                state.value = State.SUCCESS
+            }
         }
     }
 }
