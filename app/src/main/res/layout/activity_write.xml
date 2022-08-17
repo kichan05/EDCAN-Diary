@@ -106,11 +106,11 @@
 
             <RadioButton
                 android:id="@+id/rb_write_sun"
+                bindRbCurrentSelect="@{vm.weather}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:button="@drawable/sc_weather_sun"
-                />
+                android:button="@drawable/sc_weather_sun" />
 
             <RadioButton
                 android:id="@+id/rb_write_cloud"
@@ -118,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_cloud"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_rain"
@@ -125,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_rain"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_sunRain"
@@ -132,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_sun_rain"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_wind"
@@ -139,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_wind"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
                 />
             <RadioButton
                 android:id="@+id/rb_write_snow"
@@ -146,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/sc_weather_snow"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
                 />
         </RadioGroup>
 
@@ -212,6 +217,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@drawable/sc_emotion_happy"
+                bindRbCurrentSelect="@{vm.emotion}"
                 android:checked="true" />
 
             <RadioButton
@@ -219,6 +225,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
                 android:button="@drawable/sc_emotion_fun"
                 />
 
@@ -227,6 +234,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
                 android:button="@drawable/sc_emotion_wow"
                 />
 
@@ -235,6 +243,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
                 android:button="@drawable/sc_emotion_normal"
                 />
 
@@ -243,6 +252,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
                 android:button="@drawable/sc_emotion_sad"
                 />
 
@@ -251,6 +261,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
                 android:button="@drawable/sc_emotion_angry"
                 />
         </RadioGroup>

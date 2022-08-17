@@ -18,9 +18,9 @@ fun bindUri(v : ImageView, image : Uri){
     v.setImageURI(image)
 }
 
-@BindingAdapter(value = ["choiceIndex", "radioButtonIndex"], requireAll = true)
-fun bindRadioButtonChoice(radioButton: RadioButton, choiceIndex : Int, radioButtonIndex : Int) {
-    radioButton.isChecked = choiceIndex == radioButtonIndex
+@BindingAdapter("bindRbCurrentSelect")
+fun bindRadioButtonChoice(radioButton: RadioButton, selectedId : Int) {
+    radioButton.isChecked = radioButton.id == selectedId
 }
 
 @BindingAdapter("bindSrc")

@@ -44,6 +44,14 @@ class WriteActivity : AppCompatActivity() {
             }
         }
 
+        binding.gbWriteWeather.setOnCheckedChangeListener { radioGroup, i ->
+            viewModel.weather.value = i
+        }
+
+        binding.gbWriteEmotion.setOnCheckedChangeListener { radioGroup, i ->
+            viewModel.emotion.value = i
+        }
+
         binding.tbWrite.setNavigationOnClickListener {
             finish()
         }

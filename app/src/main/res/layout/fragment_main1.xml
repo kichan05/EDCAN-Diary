@@ -12,6 +12,35 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.Main1Fragment">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_ve"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_ve"
+            />
+
+
+<!--        <CalendarView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="@id/line_st"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/line_end"-->
+<!--            />-->
+
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_main1_gotoWrite"
             android:layout_width="wrap_content"
