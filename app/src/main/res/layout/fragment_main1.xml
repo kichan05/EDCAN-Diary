@@ -82,6 +82,7 @@
             android:textFontWeight="500"
 
             bindDateFormat="@{viewModel.selectedData}"
+            bindVisibility="@{!viewModel.isSelectedDataDiary}"
 
             android:layout_marginTop="4dp"
 
@@ -100,6 +101,8 @@
             android:textFontWeight="500"
             android:textSize="24sp"
 
+            bindVisibility="@{!viewModel.isSelectedDataDiary}"
+
             app:layout_constraintEnd_toEndOf="@id/line_end"
             app:layout_constraintStart_toEndOf="@id/txt_main1_selectedDate"
             app:layout_constraintTop_toTopOf="@+id/txt_main1_selectedDate" />
@@ -113,10 +116,46 @@
             android:textFontWeight="500"
             android:textSize="24sp"
 
+            bindVisibility="@{!viewModel.isSelectedDataDiary}"
+
             app:layout_constraintTop_toBottomOf="@id/txt_main1_selectedDate"
             app:layout_constraintEnd_toEndOf="@id/line_end"
             app:layout_constraintStart_toStartOf="@id/line_st"
             />
+
+        <TextView
+            android:id="@+id/txt_main1_selectedDate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="24sp"
+            android:layout_marginTop="24dp"
+            bindDateFormat="@{viewModel.selectedData}"
+            bindVisibility="@{viewModel.isSelectedDataDiary}"
+
+            app:layout_constraintTop_toBottomOf="@id/txt_main1_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btn_main1_gotodiaryDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="보러가기"
+            android:textSize="15sp"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="32dp"
+
+            bindVisibility="@{viewModel.isSelectedDataDiary}"
+
+            app:layout_constraintTop_toBottomOf="@+id/txt_main1_selectedDate2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

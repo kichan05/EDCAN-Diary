@@ -16,8 +16,8 @@ import kr.edcan.ssf2022.util.ExtraKey
 import java.util.Date
 
 class Main1Fragment : Fragment() {
-    lateinit var binding : FragmentMain1Binding
-    val viewModel : Main1ViewModel by viewModels()
+    lateinit var binding: FragmentMain1Binding
+    val viewModel: Main1ViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +34,14 @@ class Main1Fragment : Fragment() {
         }
 
         binding.txtMain1Calendar.setOnDateChangeListener { v, year, month, day ->
-            Log.d("caneldayset", "${year}년 ${month}월 ${day}일")
             viewModel.selectedData.value = Date(year - 1900, month, day)
+        }
+
+        viewModel.selectedData.observe(viewLifecycleOwner) {
+            viewModel.isSelectedDataDiary.value =
+                (activity as MainActivity).viewModel.diaryList.value!!.any { diaryListItem ->
+                    diaryListItem.date.year == it.year && diaryListItem.date.month == it.month && diaryListItem.date.day == it.day
+                }
         }
 
         return binding.root

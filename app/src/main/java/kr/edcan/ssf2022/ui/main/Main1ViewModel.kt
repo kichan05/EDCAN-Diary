@@ -18,4 +18,5 @@ import java.util.*
 
 class Main1ViewModel : ViewModel() {
     val selectedData = MutableLiveData<Date>(Date())
+    val isSelectedDataDiary = MutableLiveData<Boolean>()
 }
