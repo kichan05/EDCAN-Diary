@@ -1,11 +1,16 @@
 package kr.edcan.ssf2022.ui.all
 
 import android.net.Uri
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.RadioButton
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.Date
 
 
 @BindingAdapter("input_enabled")
@@ -28,4 +33,14 @@ fun bindSrc(imageView: ImageView, url : String){
     Glide.with(imageView.context)
         .load(url)
         .into(imageView)
+}
+
+@BindingAdapter("bindDateFormat")
+fun bindDateFormat(textView: TextView, date : Date){
+    val simpleDateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
+    val strNowDate = simpleDateFormat.format(date)
+    Log.d("dataFormat", date.toString())
+    Log.d("dataFormat", strNowDate)
+
+    textView.text = strNowDate
 }
