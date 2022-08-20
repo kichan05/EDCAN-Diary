@@ -71,7 +71,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
 
-            android:src="@drawable/ic_sun_ac"
+            bindWeatherIconId="@{vm.diaryDate.weather}"
             app:layout_constraintTop_toTopOf="@id/txt_detail_weatherTitle"
             app:layout_constraintBottom_toBottomOf="@id/txt_detail_weatherTitle"
             app:layout_constraintStart_toEndOf="@id/txt_detail_weatherTitle"
@@ -96,7 +96,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
 
-            android:src="@drawable/ic_angry_ac"
+            bindEmotionIconId="@{vm.diaryDate.emotion}"
             app:layout_constraintTop_toTopOf="@id/txt_detail_emotionTitle"
             app:layout_constraintBottom_toBottomOf="@id/txt_detail_emotionTitle"
             app:layout_constraintStart_toEndOf="@id/txt_detail_emotionTitle"

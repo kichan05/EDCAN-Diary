@@ -47,6 +47,5 @@ fun bindDateFormat(textView: TextView, date : Date){
 
 @BindingAdapter("bindToolBarDateFormat")
 fun bindToolBarDateFormat(toolBar : androidx.appcompat.widget.Toolbar, date : Date){
-    Log.d("bindToolBarDateFormat", date.toString())
     toolBar.title = "${date.year + 1900}년 ${date.month + 1}월 ${date.date - 2}일 일기"
 }
