@@ -57,6 +57,10 @@ class WriteActivity : AppCompatActivity() {
         }
 
         binding.btnWriteSave.setOnClickListener {
+            if(viewModel.content.value.isNullOrBlank()){
+                Toast.makeText(this, "일기를 작성 해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             viewModel.writeDiary()
         }
     }
