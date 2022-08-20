@@ -30,19 +30,6 @@ class MainActivity : AppCompatActivity() {
         navControl = findNavController(R.id.fr_main)
         findViewById<BottomNavigationView>(R.id.btnv_main).setupWithNavController(navControl)
 
-        viewModel.diaryList.observe(this){
-            Log.d("diaryList", it.toString())
-        }
-
-        viewModel.state.observe(this) {
-            when(it){
-                State.SUCCESS -> Log.d("getDairy", "일기 가져오기 성공")
-                State.LOADING -> Log.d("getDairy", "일기 가져오기 실행")
-                State.FAIL -> Log.d("getDairy", "일기 가져오기 실패")
-            }
-            Log.d("getDairy", viewModel.diaryList.value.toString())
-        }
-
         findViewById<androidx.appcompat.widget.Toolbar>(R.id.tb_main).setNavigationOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(Url.edcanWeb))
             startActivity(intent)

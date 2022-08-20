@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import kr.edcan.ssf2022.R
 import kr.edcan.ssf2022.databinding.FragmentMain1Binding
+import kr.edcan.ssf2022.model.data.Diary
+import kr.edcan.ssf2022.ui.diaryDetail.DiaryDetailActivity
 import kr.edcan.ssf2022.ui.write.WriteActivity
 import kr.edcan.ssf2022.util.ExtraKey
 import java.util.Date
@@ -37,11 +39,27 @@ class Main1Fragment : Fragment() {
             viewModel.selectedData.value = Date(year - 1900, month, day)
         }
 
-        viewModel.selectedData.observe(viewLifecycleOwner) {
-            viewModel.isSelectedDataDiary.value =
-                (activity as MainActivity).viewModel.diaryList.value!!.any { diaryListItem ->
-                    diaryListItem.date.year == it.year && diaryListItem.date.month == it.month && diaryListItem.date.day == it.day
+        binding.btnMain1GotodiaryDetail.setOnClickListener {
+            val intent = Intent(context, DiaryDetailActivity::class.java).apply {
+                putExtra(ExtraKey.diaryData, viewModel.selectedDiary.value)
+            }
+            activity!!.startActivity(intent)
+        }
+
+        with(viewModel) {
+            selectedData.observe(viewLifecycleOwner) {
+                isSelectedDataDiary.value =
+                    (activity as MainActivity).viewModel.diaryList.value!!.any { diaryListItem ->
+                        diaryListItem.date.year == it.year && diaryListItem.date.month == it.month && diaryListItem.date.date == it.date
+                    }
+
+                if (isSelectedDataDiary.value == true) {
+                    selectedDiary.value =
+                        (activity as MainActivity).viewModel.diaryList.value!!.filter { diaryListItem ->
+                            diaryListItem.date.year == it.year && diaryListItem.date.month == it.month && diaryListItem.date.date == it.date
+                        }[0]
                 }
+            }
         }
 
         return binding.root

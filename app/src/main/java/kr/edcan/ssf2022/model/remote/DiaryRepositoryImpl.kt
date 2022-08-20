@@ -1,5 +1,6 @@
 package kr.edcan.ssf2022.model.remote
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
@@ -35,6 +36,7 @@ class DiaryRepositoryImpl : DiaryRepository {
             .addOnSuccessListener {
                 for(doc in it){
                    result!!.add(doc.toObject(Diary::class.java))
+                    Log.d("diaryData", doc.toObject(Diary::class.java).toString())
                 }
             }
             .addOnFailureListener {

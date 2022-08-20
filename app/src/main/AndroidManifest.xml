@@ -14,6 +14,9 @@
         android:theme="@style/Theme.SSF2022"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.diaryDetail.DiaryDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.write.WriteActivity"
             android:exported="false" />
         <activity

@@ -1,4 +1,4 @@
-package kr.edcan.ssf2022.ui.main
+package kr.edcan.ssf2022.ui.diaryDetail
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -16,8 +16,6 @@ import kr.edcan.ssf2022.util.State
 import java.time.LocalDate
 import java.util.*
 
-class Main1ViewModel : ViewModel() {
-    val selectedData = MutableLiveData<Date>(Date())
-    val isSelectedDataDiary = MutableLiveData<Boolean>()
-    val selectedDiary = MutableLiveData<Diary>()
+class DiaryDetailViewModel : ViewModel() {
+    val diaryDate = MutableLiveData<Diary>()
 }

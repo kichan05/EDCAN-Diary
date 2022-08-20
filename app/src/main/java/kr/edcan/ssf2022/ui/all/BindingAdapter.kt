@@ -3,10 +3,7 @@ package kr.edcan.ssf2022.ui.all
 import android.net.Uri
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.TextView
+import android.widget.*
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
@@ -46,4 +43,10 @@ fun bindDateFormat(textView: TextView, date : Date){
     val strNowDate = simpleDateFormat.format(date)
 
     textView.text = strNowDate
+}
+
+@BindingAdapter("bindToolBarDateFormat")
+fun bindToolBarDateFormat(toolBar : androidx.appcompat.widget.Toolbar, date : Date){
+    Log.d("bindToolBarDateFormat", date.toString())
+    toolBar.title = "${date.year + 1900}년 ${date.month + 1}월 ${date.date - 2}일 일기"
 }
