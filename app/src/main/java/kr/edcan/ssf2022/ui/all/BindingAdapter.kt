@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.*
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import kr.edcan.ssf2022.R
+import kr.edcan.ssf2022.util.Emotion
+import kr.edcan.ssf2022.util.Weather
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.Date
@@ -48,4 +51,62 @@ fun bindDateFormat(textView: TextView, date : Date){
 @BindingAdapter("bindToolBarDateFormat")
 fun bindToolBarDateFormat(toolBar : androidx.appcompat.widget.Toolbar, date : Date){
     toolBar.title = "${date.year + 1900}년 ${date.month + 1}월 ${date.date - 2}일 일기"
+}
+
+@BindingAdapter("bindWeatherNormalIconId")
+fun bindWeatherNormalIconId(imageview: ImageView, weatherId: Int) {
+    val iconId = when(weatherId){
+        Weather.sun -> R.drawable.ic_sun
+        Weather.cloud -> R.drawable.ic_cloud
+        Weather.rain -> R.drawable.ic_rain
+        Weather.sunRain -> R.drawable.ic_sun_rain
+        Weather.wind -> R.drawable.ic_wind
+        Weather.snow -> R.drawable.ic_snow
+        else -> R.drawable.ic_sun
+    }
+    imageview.setImageResource(iconId)
+}
+
+@BindingAdapter("bindEmotionNormalAcIconId")
+fun bindEmotionNormalAcIconId(imageview: ImageView, emotionId : Int){
+    val iconId = when(emotionId){
+        Emotion.happy -> R.drawable.ic_angry
+        Emotion.fun_ -> R.drawable.ic_angry
+        Emotion.wow -> R.drawable.ic_angry
+        Emotion.normal -> R.drawable.ic_nomal
+        Emotion.sad -> R.drawable.ic_angry
+        Emotion.angry -> R.drawable.ic_angry
+        else -> R.drawable.ic_angry
+    }
+
+    imageview.setImageResource(iconId)
+}
+
+@BindingAdapter("bindWeatherAcIconId")
+fun bindWeatherAcIconId(imageview: ImageView, weatherId: Int) {
+    val iconId = when(weatherId){
+        Weather.sun -> R.drawable.ic_sun_ac
+        Weather.cloud -> R.drawable.ic_cloud_ac
+        Weather.rain -> R.drawable.ic_rain_ac
+        Weather.sunRain -> R.drawable.ic_sun_rain_ac
+        Weather.wind -> R.drawable.ic_wind_ac
+        Weather.snow -> R.drawable.ic_snow_ac
+        else -> R.drawable.ic_sun_ac
+    }
+    imageview.setImageResource(iconId)
+}
+
+@BindingAdapter("bindEmotionAcIconId")
+fun bindEmotionAcIconId(imageview: ImageView, emotionId : Int){
+    val iconId = when(emotionId){
+        Emotion.happy -> R.drawable.ic_angry_ac
+        Emotion.fun_ -> R.drawable.ic_angry_ac
+        Emotion.wow -> R.drawable.ic_angry_ac
+        Emotion.normal -> R.drawable.ic_nomal_ac
+        Emotion.sad -> R.drawable.ic_angry_ac
+        Emotion.angry -> R.drawable.ic_angry_ac
+        else -> R.drawable.ic_angry_ac
+    }
+
+    imageview.setImageResource(iconId)
 }
