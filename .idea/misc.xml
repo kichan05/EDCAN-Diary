@@ -11,6 +11,7 @@
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan_small.xml" value="0.102" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan_smole.xml" value="0.1" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_edcan_typo.xml" value="0.185" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_fun.xml" value="0.1385" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_fun_ac.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_happy_ac.xml" value="0.1775" />
@@ -30,6 +31,7 @@
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_wind_ac.xml" value="0.1775" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_wow.xml" value="0.1775" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_wow_ac.xml" value="0.1775" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/ic_x.xml" value="0.185" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_button_enabled.xml" value="0.1875" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_emotion_angry.xml" value="0.1" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/drawable/sc_emotion_fun.xml" value="0.1" />
@@ -57,6 +59,7 @@
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_splash.xml" value="0.33" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_test.xml" value="0.16" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/activity_write.xml" value="0.22" />
         <entry key="..\:/Android/SSF2022/app/src/main/res/layout/dialog_loading.xml" value="0.25" />
