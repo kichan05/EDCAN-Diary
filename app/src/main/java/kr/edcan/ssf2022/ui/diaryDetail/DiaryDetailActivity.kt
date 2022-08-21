@@ -22,6 +22,9 @@ class DiaryDetailActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         viewModel.diaryDate.value = intent.getParcelableExtra<Diary>(ExtraKey.diaryData)
-        Log.d("diaryData", intent.getParcelableExtra<Diary>(ExtraKey.diaryData).toString())
+
+        binding.tbDetail.setNavigationOnClickListener {
+            finish()
+        }
     }
 }
