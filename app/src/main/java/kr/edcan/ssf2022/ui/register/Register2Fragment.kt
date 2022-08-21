@@ -27,12 +27,15 @@ class Register2Fragment : Fragment() {
 
         binding.run {
             btnRegister2Next.setOnClickListener {
-
                 if(viewModel.password.value != viewModel.passwordRe.value) {
-                    Snackbar.make(it, "비밀번호가 서로 달라요", Snackbar.LENGTH_LONG).show()
+                    viewModel.errorMessage.value = "비밀번호가 서로 달라요"
                     return@setOnClickListener
                 }
-
+                if(viewModel.password.value!!.length < 8) {
+                    viewModel.errorMessage.value = "비밀번호가 너무 짧아요"
+                    return@setOnClickListener
+                }
+                
                 (activity as RegisterActivity).run {
                     inputPassword = this@Register2Fragment.viewModel.password.value!!
 

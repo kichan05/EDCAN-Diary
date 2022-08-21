@@ -133,6 +133,7 @@
 
             android:hint="이름"
             android:text="@={vm.name}"
+            android:maxLines="1"
 
             android:layout_marginTop="26dp"
 
@@ -147,6 +148,8 @@
 
             android:hint="이메일"
             android:text="@={vm.email}"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
 
             android:layout_marginTop="16dp"
 
@@ -167,6 +170,24 @@
             app:layout_constraintTop_toBottomOf="@id/edt_register1_emailInput"
             app:layout_constraintEnd_toEndOf="@id/line2"
             app:layout_constraintStart_toStartOf="@id/line1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="에러 문구"
+            android:textColor="@color/flatRed"
+            android:textSize="18sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="12dp"
+
+            bindInputErrorMessage="@{vm.errorMessage}"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_register1_next"
+            app:layout_constraintStart_toStartOf="@id/line1"
+            app:layout_constraintEnd_toEndOf="@id/line2"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

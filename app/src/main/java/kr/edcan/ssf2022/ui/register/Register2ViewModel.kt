@@ -11,6 +11,8 @@ class Register2ViewModel : ViewModel() {
 
     val isNextEnable : MutableLiveData<Boolean> = MutableLiveData(false)
 
+    val errorMessage = MutableLiveData<String?>(null)
+
     fun checkNext(){
         isNextEnable.value = !(password.value.isNullOrEmpty() || passwordRe.value.isNullOrEmpty())
     }

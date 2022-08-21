@@ -1,17 +1,19 @@
 package kr.edcan.ssf2022.ui.all
 
 import android.net.Uri
-import android.util.Log
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.firebase.ui.auth.AuthUI.getApplicationContext
 import kr.edcan.ssf2022.R
 import kr.edcan.ssf2022.util.Emotion
 import kr.edcan.ssf2022.util.Weather
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.util.Date
+import java.util.*
+
 
 @BindingAdapter("bindVisibility")
 fun bindVisibility(view : View, visibility : Boolean){
@@ -109,4 +111,19 @@ fun bindEmotionAcIconId(imageview: ImageView, emotionId : Int){
     }
 
     imageview.setImageResource(iconId)
+}
+
+@BindingAdapter("bindInputErrorMessage")
+fun bindInputErrorMessage(textView : TextView, errorMessage : String?){
+    if(errorMessage == null){
+        textView.visibility = View.INVISIBLE
+    }
+    else {
+        val animation: Animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_error_message)
+        textView.startAnimation(animation)
+
+        textView.visibility = View.VISIBLE
+
+        textView.text = errorMessage
+    }
 }

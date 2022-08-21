@@ -18,6 +18,8 @@ class LoginViewModel : ViewModel() {
 
     var userData: MutableLiveData<User> = MutableLiveData()
 
+    val errorMessage = MutableLiveData<String?>(null)
+
     fun login() {
         state.value = State.LOADING
         viewModelScope.launch {

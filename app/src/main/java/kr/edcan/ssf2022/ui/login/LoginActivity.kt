@@ -3,6 +3,7 @@ package kr.edcan.ssf2022.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -10,6 +11,7 @@ import kr.edcan.ssf2022.R
 import kr.edcan.ssf2022.databinding.ActivityLoginBinding
 import kr.edcan.ssf2022.ui.main.MainActivity
 import kr.edcan.ssf2022.ui.register.RegisterActivity
+import kr.edcan.ssf2022.util.Pattern
 import kr.edcan.ssf2022.util.State
 
 class LoginActivity : AppCompatActivity() {
@@ -31,6 +33,25 @@ class LoginActivity : AppCompatActivity() {
             }
 
             btnLoginLogin.setOnClickListener {
+                if(viewModel.inputEmail.value.isNullOrBlank()){
+                    viewModel.errorMessage.value = "이메일을 입력해주세요."
+                    return@setOnClickListener
+                }
+                if(!Patterns.EMAIL_ADDRESS.matcher(viewModel.inputEmail.value!!).matches()){
+                    viewModel.errorMessage.value = "이메일이 형식에 맞지 않습니다."
+                    return@setOnClickListener
+                }
+                if(viewModel.inputPassword.value.isNullOrBlank()){
+                    viewModel.errorMessage.value = "비밀번호를 입력해주세요."
+                    return@setOnClickListener
+                }
+                if(viewModel.inputPassword.value!!.length < 8){
+                    viewModel.errorMessage.value = "비밀번호는 8글자 이상으로 해주세요."
+                    return@setOnClickListener
+                }
+
+//                viewModel.errorMessage.value = null
+
                 viewModel.login()
             }
         }

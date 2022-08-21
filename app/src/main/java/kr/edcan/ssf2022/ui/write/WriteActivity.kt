@@ -32,7 +32,7 @@ class WriteActivity : AppCompatActivity() {
         viewModel.state.observe(this){
             when(it){
                 State.SUCCESS -> {
-                    Toast.makeText(this, "일기를 작성을 했어요", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "일기를 작성했어요", Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 State.LOADING -> {

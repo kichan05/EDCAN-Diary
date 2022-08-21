@@ -12,6 +12,8 @@ class Register1ViewModel() : ViewModel() {
     val email : MutableLiveData<String> = MutableLiveData()
     val isNextEnable : MutableLiveData<Boolean> = MutableLiveData(false)
 
+    val errorMessage = MutableLiveData<String?>(null)
+
     fun checkNext(){
         isNextEnable.value = !(name.value.isNullOrEmpty() || email.value.isNullOrEmpty())
     }
