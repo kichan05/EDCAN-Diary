@@ -72,13 +72,13 @@ fun bindWeatherNormalIconId(imageview: ImageView, weatherId: Int) {
 @BindingAdapter("bindEmotionNormalAcIconId")
 fun bindEmotionNormalAcIconId(imageview: ImageView, emotionId : Int){
     val iconId = when(emotionId){
-        Emotion.happy -> R.drawable.ic_angry
-        Emotion.fun_ -> R.drawable.ic_angry
-        Emotion.wow -> R.drawable.ic_angry
+        Emotion.happy -> R.drawable.ic_happy
+        Emotion.fun_ -> R.drawable.ic_fun
+        Emotion.wow -> R.drawable.ic_wow
         Emotion.normal -> R.drawable.ic_nomal
-        Emotion.sad -> R.drawable.ic_angry
+        Emotion.sad -> R.drawable.ic_sad
         Emotion.angry -> R.drawable.ic_angry
-        else -> R.drawable.ic_angry
+        else -> R.drawable.ic_happy
     }
 
     imageview.setImageResource(iconId)
@@ -101,13 +101,13 @@ fun bindWeatherAcIconId(imageview: ImageView, weatherId: Int) {
 @BindingAdapter("bindEmotionAcIconId")
 fun bindEmotionAcIconId(imageview: ImageView, emotionId : Int){
     val iconId = when(emotionId){
-        Emotion.happy -> R.drawable.ic_angry_ac
-        Emotion.fun_ -> R.drawable.ic_angry_ac
-        Emotion.wow -> R.drawable.ic_angry_ac
+        Emotion.happy -> R.drawable.ic_happy_ac
+        Emotion.fun_ -> R.drawable.ic_fun_ac
+        Emotion.wow -> R.drawable.ic_wow_ac
         Emotion.normal -> R.drawable.ic_nomal_ac
-        Emotion.sad -> R.drawable.ic_angry_ac
+        Emotion.sad -> R.drawable.ic_sad_ac
         Emotion.angry -> R.drawable.ic_angry_ac
-        else -> R.drawable.ic_angry_ac
+        else -> R.drawable.ic_happy_ac
     }
 
     imageview.setImageResource(iconId)
