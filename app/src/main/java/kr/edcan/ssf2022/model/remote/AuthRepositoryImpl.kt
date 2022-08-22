@@ -1,9 +1,9 @@
 package kr.edcan.ssf2022.model.remote
 
-import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.tasks.await
@@ -122,17 +122,27 @@ class AuthRepositoryImpl : AuthRepository {
         * 사용자 정보가 없다면 로그인을 진행하지 않는다
         * 사용자 정보가 있으면 로그인을 진행한다.
         * */
-        var userData: User? = getUserDataByEmail(email) ?: return null
-
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnFailureListener {
-                Log.e("[login error]", "${it.message}")
-                userData = null
-            }
-            .await()
 
 
-        return userData
+        var result: Boolean = false
+
+        try {
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener {
+                    result = true
+                }
+                .addOnFailureListener {
+                    Log.e("[login error]", "${it.message}")
+                    result = false
+                }
+                .await()
+        }
+        catch (e : FirebaseAuthInvalidCredentialsException){
+            Log.e("[login error]", "로그인 에러 발생함")
+            return null
+        }
+
+        return getUserDataByEmail(email)
     }
 
     override suspend fun getUserDataByEmail(email: String): User? {
