@@ -26,10 +26,13 @@ class LoginViewModel : ViewModel() {
             val result = auth.login(email = inputEmail.value!!, password = inputPassword.value!!)
             userData.value = result
 
+            Log.d("loginLog", result.toString())
+
             state.value = if (result != null) {
                 //로그인에 성공 한 경우
                 State.SUCCESS
             } else {
+                Log.d("loginLog", "실패")
                 //로그인에 실패한 경우
                 State.FAIL
             }
