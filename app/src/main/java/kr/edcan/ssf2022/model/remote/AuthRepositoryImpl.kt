@@ -4,6 +4,7 @@ import android.net.Uri
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.tasks.await
@@ -136,6 +137,9 @@ class AuthRepositoryImpl : AuthRepository {
                     result = false
                 }
                 .await()
+        }
+        catch (e : FirebaseAuthInvalidUserException){
+            return null
         }
         catch (e : FirebaseAuthInvalidCredentialsException){
             Log.e("[login error]", "로그인 에러 발생함")
